@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Life Fun Facts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: backgroundMove 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1em;
+        }
+
+        .fact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .fact-number {
+            color: #667eea;
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .fact-title {
+            color: #333;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .fact-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .fact-emoji {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+            animation: floatEmoji 3s ease-in-out infinite;
+        }
+
+        @keyframes floatEmoji {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .counter {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .header p {
+                font-size: 1em;
+            }
+            .fact-card {
+                padding: 25px;
+                min-height: 280px;
+            }
+            .fact-title {
+                font-size: 1.4em;
+            }
+            .fact-description {
+                font-size: 1em;
+            }
+            .fact-emoji {
+                font-size: 2.5em;
+            }
+            .btn {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .fact-card {
+                padding: 20px;
+            }
+            .fact-title {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 2025 Life Fun Facts</h1>
+            <p>Discover amazing facts about life in 2025!</p>
+        </div>
+
+        <div class="fact-card" id="factCard">
+            <div>
+                <span class="fact-emoji" id="emoji">🚀</span>
+                <div class="fact-number" id="factNumber">Fact #1</div>
+                <h2 class="fact-title" id="factTitle">Loading...</h2>
+                <p class="fact-description" id="factDescription">Click the button below to discover fun facts!</p>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button class="btn" onclick="getRandomFact()">Next Fact</button>
+        </div>
+
+        <div class="counter" id="counter">Facts discovered: 0</div>
+    </div>
+
+    <script>
+        const facts = [
+            {
+                emoji: "🌍",
+                title: "Global Population Milestone",
+                description: "In 2025, the world population is estimated to reach approximately 8.1 billion people, with India continuing as the most populous nation."
+            },
+            {
+                emoji: "🤖",
+                title: "AI in Daily Life",
+                description: "By 2025, AI assistants have become commonplace in homes and workplaces, helping with everything from scheduling to creative projects."
+            },
+            {
+                emoji: "🌱",
+                title: "Plant-Based Revolution",
+                description: "Plant-based food sales are projected to reach $162 billion globally in 2025, as more people embrace sustainable eating habits."
+            },
+            {
+                emoji: "🚗",
+                title: "Electric Vehicle Boom",
+                description: "Electric vehicles are expected to account for over 20% of global car sales in 2025, marking a major shift in transportation."
+            },
+            {
+                emoji: "💼",
+                title: "Remote Work Evolution",
+                description: "Approximately 32.6 million Americans are working remotely in 2025, transforming how we think about workspaces."
+            },
+            {
+                emoji: "🏥",
+                title: "Health Tech Advances",
+                description: "Wearable health devices in 2025 can now monitor over 50 different health metrics in real-time, revolutionizing personal healthcare."
+            },
+            {
+                emoji: "🎮",
+                title: "Gaming Industry Giant",
+                description: "The global gaming industry is valued at over $300 billion in 2025, surpassing both film and music industries combined."
+            },
+            {
+                emoji: "📱",
+                title: "Smartphone Saturation",
+                description: "In 2025, there are over 7.4 billion smartphone users worldwide, representing about 91% of the global population."
+            },
+            {
+                emoji: "☀️",
+                title: "Solar Energy Growth",
+                description: "Solar power capacity has tripled since 2020, with 2025 seeing solar as the fastest-growing energy source worldwide."
+            },
+            {
+                emoji: "🎓",
+                title: "Online Learning Boom",
+                description: "Over 400 million people are enrolled in online courses in 2025, making education more accessible than ever before."
+            },
+            {
+                emoji: "🏠",
+                title: "Smart Home Revolution",
+                description: "Nearly 60% of households in developed countries have at least one smart home device in 2025, from thermostats to security systems."
+            },
+            {
+                emoji: "🌊",
+                title: "Ocean Conservation",
+                description: "In 2025, over 10% of the world's oceans are designated as marine protected areas, up from just 1% in 2000."
+            },
+            {
+                emoji: "💳",
+                title: "Digital Payments Dominate",
+                description: "Cash transactions represent less than 15% of all purchases in 2025, as digital wallets and contactless payments become the norm."
+            },
+            {
+                emoji: "🧬",
+                title: "Genetic Testing Access",
+                description: "Consumer genetic testing has become affordable and common, with over 100 million people having their DNA analyzed by 2025."
+            },
+            {
+                emoji: "✈️",
+                title: "Space Tourism Reality",
+                description: "Space tourism is becoming more accessible in 2025, with multiple companies offering suborbital flights to paying customers."
+            },
+            {
+                emoji: "😴",
+                title: "Sleep Deprivation Crisis",
+                description: "The average adult now sleeps 6.8 hours per night, down from 8 hours in the 1940s, affecting millions of people's health and productivity."
+            },
+            {
+                emoji: "🧘",
+                title: "Meditation Goes Mainstream",
+                description: "Over 500 million people worldwide practice meditation regularly in 2025, with apps making mindfulness accessible to everyone."
+            },
+            {
+                emoji: "👶",
+                title: "Average Age of Parents",
+                description: "The average age of first-time mothers has risen to 30.5 years in developed countries, reflecting changing life priorities."
+            },
+            {
+                emoji: "🎂",
+                title: "Life Expectancy Rising",
+                description: "Global life expectancy has reached 73.4 years in 2025, up from 66.8 in 2000, thanks to medical advances and better nutrition."
+            },
+            {
+                emoji: "🏃",
+                title: "Fitness Tracking Trend",
+                description: "Over 1 billion people use fitness trackers or smartwatches to monitor their daily steps, aiming for the popular 10,000 steps goal."
+            },
+            {
+                emoji: "🍕",
+                title: "Food Delivery Explosion",
+                description: "The global food delivery market is worth over $200 billion in 2025, changing how people eat and interact with restaurants."
+            },
+            {
+                emoji: "🎵",
+                title: "Music Streaming Dominance",
+                description: "Streaming accounts for 84% of music industry revenue in 2025, with the average person listening to 20 hours of music per week."
+            },
+            {
+                emoji: "📚",
+                title: "Reading Habits Shift",
+                description: "E-books and audiobooks now represent 40% of all book consumption, while traditional print books maintain a loyal following."
+            },
+            {
+                emoji: "☕",
+                title: "Coffee Culture Peak",
+                description: "Humans consume over 2.25 billion cups of coffee daily worldwide, making it the second-most traded commodity after oil."
+            },
+            {
+                emoji: "🐕",
+                title: "Pet Ownership Boom",
+                description: "Over 470 million dogs are kept as pets globally in 2025, with pet ownership linked to improved mental health and longevity."
+            },
+            {
+                emoji: "🌡️",
+                title: "Climate Awareness",
+                description: "78% of people worldwide consider climate change a major threat in 2025, driving personal and political action."
+            },
+            {
+                emoji: "🚴",
+                title: "Bicycle Renaissance",
+                description: "Cycling for transportation has increased 60% in major cities since 2020, reducing emissions and improving public health."
+            },
+            {
+                emoji: "💊",
+                title: "Mental Health Focus",
+                description: "Mental health awareness has surged, with 1 in 5 adults seeking therapy or counseling in 2025, reducing stigma worldwide."
+            },
+            {
+                emoji: "🌮",
+                title: "Food Waste Reduction",
+                description: "Thanks to awareness campaigns, household food waste has decreased by 25% since 2020, saving billions of dollars and resources."
+            },
+            {
+                emoji: "🎨",
+                title: "Creative Side Hustles",
+                description: "Over 36% of workers have a creative side hustle in 2025, from art to music to content creation, supplementing their income."
+            },
+            {
+                emoji: "🏋️",
+                title: "Home Gym Revolution",
+                description: "The home fitness equipment market reached $15 billion in 2025, as people invest in convenient workout solutions."
+            },
+            {
+                emoji: "🌳",
+                title: "Urban Green Spaces",
+                description: "Cities with more green spaces report 15% higher happiness levels among residents, driving urban planning changes worldwide."
+            },
+            {
+                emoji: "📖",
+                title: "Lifelong Learning",
+                description: "The average person in 2025 changes careers 5-7 times in their lifetime, making continuous learning essential."
+            },
+            {
+                emoji: "🎭",
+                title: "Streaming Entertainment",
+                description: "The average household subscribes to 4.5 streaming services in 2025, spending over $70 monthly on digital entertainment."
+            },
+            {
+                emoji: "🧑‍🤝‍🧑",
+                title: "Social Connection Online",
+                description: "People maintain an average of 338 social media connections but report feeling close to only 15-20 people regularly."
+            },
+            {
+                emoji: "🏖️",
+                title: "Vacation Time Reality",
+                description: "Americans take only 54% of their available vacation days, while Europeans use 90%, highlighting different work-life balance cultures."
+            },
+            {
+                emoji: "🎯",
+                title: "Goal Setting Success",
+                description: "Only 8% of people achieve their New Year's resolutions, but those who write down goals are 42% more likely to succeed."
+            },
+            {
+                emoji: "🌙",
+                title: "Night Owl Generation",
+                description: "30% of adults identify as night owls in 2025, with flexible work schedules accommodating different chronotypes better."
+            },
+            {
+                emoji: "🥗",
+                title: "Meal Prep Movement",
+                description: "45% of health-conscious individuals meal prep weekly in 2025, saving time and making healthier eating choices easier."
+            },
+            {
+                emoji: "🎬",
+                title: "Binge-Watching Culture",
+                description: "The average person binge-watches 3.2 hours of content per sitting, with streaming making this behavior mainstream."
+            },
+            {
+                emoji: "🚿",
+                title: "Water Conservation",
+                description: "Modern low-flow showerheads save up to 2,900 gallons of water per person annually, addressing water scarcity concerns."
+            },
+            {
+                emoji: "💑",
+                title: "Dating App Dominance",
+                description: "39% of couples in 2025 met through dating apps, making it the most common way people start relationships."
+            },
+            {
+                emoji: "🧠",
+                title: "Brain Training Apps",
+                description: "Over 200 million people use brain training apps daily, though scientific evidence for their effectiveness remains mixed."
+            },
+            {
+                emoji: "🌾",
+                title: "Urban Farming Growth",
+                description: "Urban agriculture produces 20% of the world's food supply in 2025, with rooftop and vertical farms becoming common."
+            },
+            {
+                emoji: "🎤",
+                title: "Podcast Popularity",
+                description: "Over 460 million people listen to podcasts regularly in 2025, with true crime and comedy being the most popular genres."
+            },
+            {
+                emoji: "🔋",
+                title: "Screen Time Reality",
+                description: "The average person spends 7 hours daily looking at screens in 2025, prompting blue light glasses and digital detox trends."
+            },
+            {
+                emoji: "🏡",
+                title: "Tiny House Movement",
+                description: "Over 10 million people live in tiny homes globally, embracing minimalism and reducing their environmental footprint."
+            },
+            {
+                emoji: "🎸",
+                title: "DIY Music Creation",
+                description: "60 million people create and share original music online in 2025, democratizing music production like never before."
+            },
+            {
+                emoji: "🥾",
+                title: "Hiking Popularity Surge",
+                description: "Hiking participation increased 171% since 2020, with people seeking outdoor recreation and mental health benefits."
+            },
+            {
+                emoji: "🍃",
+                title: "Zero Waste Lifestyle",
+                description: "15 million households practice zero waste living in 2025, significantly reducing their landfill contributions."
+            },
+            {
+                emoji: "👓",
+                title: "Vision Problems Rise",
+                description: "50% of the global population is projected to be nearsighted by 2050, largely due to increased screen time and indoor activities."
+            },
+            {
+                emoji: "🧃",
+                title: "Hydration Awareness",
+                description: "Reusable water bottle sales have skyrocketed, with 65% of people carrying one daily to stay hydrated and reduce plastic waste."
+            },
+            {
+                emoji: "🎪",
+                title: "Experience Over Things",
+                description: "78% of millennials and Gen Z prefer spending on experiences rather than material possessions, reshaping consumer markets."
+            },
+            {
+                emoji: "🌸",
+                title: "Indoor Plant Trend",
+                description: "The average urban dwelling has 8 houseplants in 2025, improving air quality and providing psychological benefits."
+            },
+            {
+                emoji: "🍜",
+                title: "Cooking at Home",
+                description: "Home cooking increased by 35% since 2020, with people learning new cuisines and saving money while improving nutrition."
+            },
+            {
+                emoji: "🛌",
+                title: "Sleep Tech Innovation",
+                description: "The sleep technology market is worth $28 billion in 2025, with smart mattresses and sleep trackers optimizing rest."
+            },
+            {
+                emoji: "🎓",
+                title: "Student Debt Reality",
+                description: "Global student debt exceeds $1.7 trillion in 2025, affecting major life decisions like buying homes and starting families."
+            },
+            {
+                emoji: "🏆",
+                title: "Competitive Gaming",
+                description: "Esports viewership reached 640 million in 2025, with professional gamers earning millions and stadiums selling out."
+            },
+            {
+                emoji: "🧘‍♂️",
+                title: "Yoga Practitioners",
+                description: "Over 500 million people practice yoga worldwide in 2025, recognizing its physical and mental health benefits."
+            },
+            {
+                emoji: "🚰",
+                title: "Tap Water Quality",
+                description: "87% of people in developed nations have access to safe drinking water, though 2 billion still lack this basic necessity."
+            },
+            {
+                emoji: "📷",
+                title: "Photo Explosion",
+                description: "Humans take 1.81 trillion photos annually in 2025, averaging 54 photos per second globally, documenting every moment."
+            },
+            {
+                emoji: "🎨",
+                title: "Adult Coloring Books",
+                description: "Adult coloring books remain popular stress-relief tools, with 25 million sold annually for mindfulness and creativity."
+            },
+            {
+                emoji: "🌍",
+                title: "Language Learning Boom",
+                description: "Over 300 million people actively learn new languages through apps in 2025, connecting cultures and expanding opportunities."
+            },
+            {
+                emoji: "🎁",
+                title: "Subscription Box Craze",
+                description: "The subscription box market is worth $32 billion in 2025, delivering curated products from snacks to books monthly."
+            },
+            {
+                emoji: "🧼",
+                title: "Handwashing Habits",
+                description: "Post-pandemic, 72% of people wash their hands more frequently, improving overall hygiene and reducing illness transmission."
+            },
+            {
+                emoji: "🌟",
+                title: "Side Gig Economy",
+                description: "44% of working adults have a side gig in 2025, earning extra income through ridesharing, freelancing, or selling online."
+            },
+            {
+                emoji: "🎮",
+                title: "Gaming Demographics",
+                description: "The average gamer is 34 years old in 2025, with 46% being women, breaking stereotypes about who plays video games."
+            },
+            {
+                emoji: "🍦",
+                title: "Ice Cream Consumption",
+                description: "The world consumes 15.4 billion liters of ice cream annually, with vanilla remaining the most popular flavor globally."
+            },
+            {
+                emoji: "🏃‍♀️",
+                title: "Marathon Participation",
+                description: "Over 1.1 million people run marathons annually worldwide, testing their limits and raising billions for charity."
+            },
+            {
+                emoji: "📱",
+                title: "Phone Checking Habit",
+                description: "People check their phones an average of 144 times per day in 2025, or approximately every 6.5 minutes while awake."
+            },
+            {
+                emoji: "🌈",
+                title: "LGBTQ+ Acceptance",
+                description: "72% of people globally support LGBTQ+ rights in 2025, reflecting growing acceptance and legal protections worldwide."
+            },
+            {
+                emoji: "🍕",
+                title: "Pizza Consumption",
+                description: "Americans consume 3 billion pizzas annually, averaging 46 slices per person yearly, making it a cultural staple."
+            },
+            {
+                emoji: "🎵",
+                title: "Concert Attendance",
+                description: "Live music events generated $31 billion in revenue in 2025, with fans craving in-person experiences post-pandemic."
+            },
+            {
+                emoji: "🛍️",
+                title: "Online Shopping Habits",
+                description: "E-commerce accounts for 24% of all retail sales in 2025, with mobile shopping growing faster than desktop."
+            },
+            {
+                emoji: "🌮",
+                title: "Taco Tuesday Tradition",
+                description: "71% of Americans participate in Taco Tuesday, making it one of the most celebrated weekly food traditions."
+            },
+            {
+                emoji: "🏠",
+                title: "Homeownership Age",
+                description: "The average first-time homebuyer is now 36 years old, up from 29 in the 1970s, due to housing costs and student debt."
+            },
+            {
+                emoji: "🎓",
+                title: "College Education Stats",
+                description: "40% of adults worldwide have some form of higher education in 2025, the highest percentage in human history."
+            },
+            {
+                emoji: "🐱",
+                title: "Cat Video Phenomenon",
+                description: "Cat videos generate over 26 billion views annually online, proving their enduring popularity across all demographics."
+            },
+            {
+                emoji: "🌱",
+                title: "Garden Therapy",
+                description: "Gardening reduces stress by 60% and is practiced by 35% of households, combining exercise with nature connection."
+            },
+            {
+                emoji: "🎂",
+                title: "Birthday Celebrations",
+                description: "The birthday industry is worth $20 billion globally, with personalized experiences replacing traditional party trends."
+            },
+            {
+                emoji: "🚶",
+                title: "Walking Benefits",
+                description: "Regular walking reduces risk of chronic disease by 20% and is the most popular form of exercise worldwide in 2025."
+            },
+            {
+                emoji: "💰",
+                title: "Financial Literacy",
+                description: "Only 33% of adults worldwide are financially literate, highlighting the need for better money education in schools."
+            },
+            {
+                emoji: "🎪",
+                title: "Volunteering Impact",
+                description: "970 million people volunteer globally each year, contributing over $400 billion in economic value through service."
+            },
+            {
+                emoji: "🍿",
+                title: "Movie Theater Evolution",
+                description: "Premium cinema experiences with reclining seats and dining options have grown 200%, redefining moviegoing in 2025."
+            },
+            {
+                emoji: "🌍",
+                title: "Travel Recovery",
+                description: "International tourism has fully recovered post-pandemic, with 1.5 billion trips taken annually, boosting global economies."
+            },
+            {
+                emoji: "🎯",
+                title: "Productivity Paradox",
+                description: "Despite productivity apps, workers feel busier than ever, with 82% reporting increased workload stress in 2025."
+            },
+            {
+                emoji: "🧑‍🍳",
+                title: "Home Chef Culture",
+                description: "Cooking show viewership is at an all-time high, inspiring 68% of viewers to try new recipes at home weekly."
+            },
+            {
+                emoji: "🌟",
+                title: "Gratitude Practice",
+                description: "Daily gratitude journaling improves happiness by 25% and is practiced by 42 million people worldwide in 2025."
+            },
+            {
+                emoji: "🎨",
+                title: "Art Therapy Growth",
+                description: "Art therapy is now recognized in healthcare, helping millions manage anxiety, trauma, and depression effectively."
+            },
+            {
+                emoji: "🏃",
+                title: "5K Race Popularity",
+                description: "5K runs are the most popular race distance globally, with over 17 million participants annually in organized events."
+            },
+            {
+                emoji: "🌙",
+                title: "Sleep Tracking",
+                description: "125 million people use sleep tracking devices in 2025, though obsessing over sleep data can ironically worsen insomnia."
+            },
+            {
+                emoji: "🎭",
+                title: "Theater Renaissance",
+                description: "Community theater participation increased 40% since 2020, with people seeking creative outlets and social connection."
+            },
+            {
+                emoji: "📚",
+                title: "Book Club Boom",
+                description: "45 million people participate in book clubs globally, finding community and intellectual stimulation through shared reading."
+            },
+            {
+                emoji: "🥑",
+                title: "Avocado Obsession",
+                description: "Global avocado consumption reached 8 million tons in 2025, driven by health trends and social media food culture."
+            },
+            {
+                emoji: "🎮",
+                title: "Gaming for Good",
+                description: "Gamers raised $285 million for charities through livestreams in 2025, turning entertainment into social impact."
+            },
+            {
+                emoji: "🌸",
+                title: "Mindfulness Minutes",
+                description: "Just 10 minutes of daily mindfulness practice reduces anxiety by 30%, making it a powerful mental health tool."
+            },
+            {
+                emoji: "👨‍👩‍👧",
+                title: "Multi-Generational Homes",
+                description: "20% of Americans live in multi-generational households in 2025, up from 12% in 1980, as families adapt to housing costs."
+            },
+            {
+                emoji: "🎧",
+                title: "Audiobook Revolution",
+                description: "Audiobook listeners consume an average of 15 books per year, double that of traditional readers, during commutes and chores."
+            },
+            {
+                emoji: "🌞",
+                title: "Vitamin D Deficiency",
+                description: "42% of adults are vitamin D deficient due to indoor lifestyles, prompting health experts to recommend daily sun exposure."
+            },
+            {
+                emoji: "🍫",
+                title: "Chocolate Consumption",
+                description: "The world consumes 7.2 million tons of chocolate annually, with Switzerland leading at 19 pounds per person yearly."
+            },
+            {
+                emoji: "🚿",
+                title: "Shower Singing Stats",
+                description: "67% of people sing in the shower regularly, with bathroom acoustics making everyone feel like a professional vocalist."
+            },
+            {
+                emoji: "💤",
+                title: "Power Nap Benefits",
+                description: "20-minute power naps boost productivity by 34% and alertness by 54%, making workplace nap rooms increasingly common."
+            },
+            {
+                emoji: "🎨",
+                title: "Crafting Comeback",
+                description: "DIY crafting generates $44 billion annually, with knitting, crocheting, and woodworking experiencing massive resurgences."
+            },
+            {
+                emoji: "🌍",
+                title: "Carbon Footprint Awareness",
+                description: "58% of consumers actively try to reduce their carbon footprint in 2025, influencing purchasing decisions and lifestyle choices."
+            },
+            {
+                emoji: "🏊",
+                title: "Swimming Participation",
+                description: "Swimming is the fourth most popular activity globally, with 360 million people swimming for fitness and recreation regularly."
+            },
+            {
+                emoji: "📝",
+                title: "Journaling Practice",
+                description: "88 million people keep regular journals in 2025, using writing for self-reflection, creativity, and mental health."
+            },
+            {
+                emoji: "🎯",
+                title: "Procrastination Problem",
+                description: "88% of the workforce procrastinates daily for at least one hour, costing billions in lost productivity worldwide."
+            },
+            {
+                emoji: "🥤",
+                title: "Beverage Choices",
+                description: "Water has overtaken soda as the most consumed beverage globally, reflecting healthier lifestyle choices in 2025."
+            },
+            {
+                emoji: "🎪",
+                title: "Circus Arts Revival",
+                description: "Aerial yoga, trapeze, and circus skills classes have grown 300%, offering unique fitness and creative expression."
+            },
+            {
+                emoji: "🌙",
+                title: "Moon Cycle Interest",
+                description: "35% of people track lunar cycles for gardening, moods, or spiritual practices, blending tradition with modern life."
+            },
+            {
+                emoji: "🍎",
+                title: "Apple a Day Reality",
+                description: "People who eat an apple daily have 23% fewer doctor visits, validating the old saying with modern health data."
+            },
+            {
+                emoji: "🚴‍♀️",
+                title: "Bike Sharing Success",
+                description: "Bike-sharing programs exist in 1,600 cities worldwide, providing eco-friendly transportation to 50 million users."
+            },
+            {
+                emoji: "🎭",
+                title: "Improv Classes Boom",
+                description: "Improv comedy classes have tripled in popularity, helping people build confidence, creativity, and communication skills."
+            },
+            {
+                emoji: "🧩",
+                title: "Puzzle Popularity",
+                description: "Jigsaw puzzle sales increased 370% during challenging times, offering stress relief and cognitive benefits to millions."
+            },
+            {
+                emoji: "🌮",
+                title: "Breakfast Skipping",
+                description: "31% of people skip breakfast regularly in 2025, despite nutritionists' recommendations to eat morning meals."
+            },
+            {
+                emoji: "🎸",
+                title: "Guitar Learning",
+                description: "70 million people are learning guitar worldwide, making it the most popular instrument, thanks to online tutorials."
+            },
+            {
+                emoji: "🏃‍♂️",
+                title: "Couch to 5K Success",
+                description: "The Couch to 5K program has helped 10 million beginners start running, transforming sedentary people into athletes."
+            },
+            {
+                emoji: "🌻",
+                title: "Sunflower Effect",
+                description: "Looking at flowers for just 5 minutes daily reduces stress and increases happiness, inspiring office plant trends."
+            },
+            {
+                emoji: "🍜",
+                title: "Ramen Consumption",
+                description: "106 billion servings of instant ramen are consumed annually worldwide, making it humanity's favorite quick meal."
+            },
+            {
+                emoji: "🎮",
+                title: "Gaming Health Benefits",
+                description: "Action video games improve hand-eye coordination by 58% and decision-making speed, challenging negative stereotypes."
+            },
+            {
+                emoji: "🧘‍♀️",
+                title: "Breathwork Practice",
+                description: "Controlled breathing exercises reduce stress hormones by 46% and are practiced by 150 million people globally."
+            },
+            {
+                emoji: "📱",
+                title: "Phone-Free Dinners",
+                description: "52% of families have phone-free dinner policies in 2025, prioritizing face-to-face connection and conversation."
+            },
+            {
+                emoji: "🌊",
+                title: "Cold Plunge Trend",
+                description: "Cold water immersion therapy has gained 15 million practitioners, boosting immunity and mental resilience."
+            },
+            {
+                emoji: "🎨",
+                title: "Paint Night Phenomenon",
+                description: "Social painting events attract 8 million participants monthly, combining creativity with social connection and wine."
+            },
+            {
+                emoji: "🚶‍♀️",
+                title: "Forest Bathing",
+                description: "Shinrin-yoku or forest bathing reduces cortisol by 16% and blood pressure by 2%, with 30 million practitioners."
+            },
+            {
+                emoji: "🍿",
+                title: "Popcorn Preference",
+                description: "Americans consume 14 billion quarts of popcorn yearly, with 70% popped at home rather than movie theaters."
+            },
+            {
+                emoji: "🎵",
+                title: "Music and Memory",
+                description: "Listening to music from your teens and twenties activates more brain regions than any other music, triggering vivid memories."
+            },
+            {
+                emoji: "🏋️‍♀️",
+                title: "Strength Training Stats",
+                description: "Only 23% of adults meet strength training guidelines of twice weekly, despite proven benefits for longevity."
+            },
+            {
+                emoji: "🌱",
+                title: "Microgreens Movement",
+                description: "Growing microgreens at home has exploded, with these nutrient-dense plants containing 40x more vitamins than mature vegetables."
+            },
+            {
+                emoji: "🎯",
+                title: "Bullet Journaling",
+                description: "25 million people use bullet journals for productivity and creativity, creating personalized organization systems."
+            },
+            {
+                emoji: "🍵",
+                title: "Tea Drinking Rituals",
+                description: "2 billion cups of tea are consumed daily worldwide, second only to water in global beverage consumption."
+            },
+            {
+                emoji: "🎪",
+                title: "Escape Room Craze",
+                description: "50,000 escape rooms operate globally in 2025, offering team-building and problem-solving entertainment to millions."
+            },
+            {
+                emoji: "🌙",
+                title: "Dream Journaling",
+                description: "18 million people keep dream journals, exploring subconscious thoughts and improving dream recall by 65%."
+            },
+            {
+                emoji: "🏃",
+                title: "Parkrun Community",
+                description: "Free weekly 5K park runs engage 7 million participants globally, building community while promoting health."
+            },
+            {
+                emoji: "🧠",
+                title: "Brain Freeze Science",
+                description: "74% of people experience brain freeze from cold foods, caused by rapid blood vessel expansion in the palate."
+            },
+            {
+                emoji: "🎨",
+                title: "Adult Paint by Numbers",
+                description: "Paint by numbers for adults sold 45 million kits in 2024, offering meditative, screen-free creative relaxation."
+            },
+            {
+                emoji: "🥗",
+                title: "Salad Consumption",
+                description: "Daily salad eaters consume 30% more vegetables overall, though only 12% of adults eat salad daily."
+            },
+            {
+                emoji: "🌍",
+                title: "Digital Nomad Lifestyle",
+                description: "35 million people identify as digital nomads in 2025, working remotely while traveling the world."
+            },
+            {
+                emoji: "🎮",
+                title: "Retro Gaming Revival",
+                description: "Classic arcade and console game sales increased 280%, with nostalgia driving entertainment choices."
+            },
+            {
+                emoji: "🧘",
+                title: "Chair Yoga Benefits",
+                description: "Chair yoga makes practice accessible to 12 million people with mobility issues, proving fitness is for every body."
+            },
+            {
+                emoji: "🍕",
+                title: "Pineapple Pizza Debate",
+                description: "Hawaiian pizza remains divisive, with 53% loving it and 47% opposing fruit on pizza in global surveys."
+            },
+            {
+                emoji: "📚",
+                title: "Library Card Ownership",
+                description: "68% of Americans have library cards, with library visits increasing as people seek free resources and community spaces."
+            },
+            {
+                emoji: "🎵",
+                title: "Earworm Phenomenon",
+                description: "98% of people experience earworms (stuck songs), with 'Happy Birthday' and 'Bohemian Rhapsody' being most common."
+            },
+            {
+                emoji: "🏡",
+                title: "Houseplant Parenthood",
+                description: "Millennials spend $13 billion on houseplants annually, with plant care providing purpose and reducing loneliness."
+            },
+            {
+                emoji: "🚶",
+                title: "Walking Meetings",
+                description: "Walking meetings boost creativity by 60% compared to sitting, with 40% of executives adopting this practice."
+            },
+            {
+                emoji: "🍰",
+                title: "Baking Therapy",
+                description: "Baking reduces stress and anxiety for 89% of practitioners, making it a delicious form of self-care."
+            },
+            {
+                emoji: "🎯",
+                title: "Habit Formation Time",
+                description: "It takes an average of 66 days to form a new habit, not 21 as commonly believed, requiring patience and consistency."
+            },
+            {
+                emoji: "🌞",
+                title: "Morning Person Advantage",
+                description: "Early risers report 25% higher life satisfaction, though 30-50% of the population are genetically night owls."
+            },
+            {
+                emoji: "🥾",
+                title: "Backpacking Boom",
+                description: "Long-distance trail hiking has increased 415%, with the Appalachian Trail seeing record completion attempts."
+            },
+            {
+                emoji: "🎨",
+                title: "Mandala Coloring",
+                description: "Coloring mandalas reduces anxiety by 36% and is used therapeutically by 18 million adults worldwide."
+            },
+            {
+                emoji: "🍎",
+                title: "Snacking Habits",
+                description: "The average person snacks 2.7 times daily, with healthy snacking reducing overall calorie consumption by choosing wisely."
+            },
+            {
+                emoji: "🌙",
+                title: "Sleep Divorce Trend",
+                description: "25% of couples sleep in separate beds for better sleep quality, prioritizing rest over tradition."
+            },
+            {
+                emoji: "🎮",
+                title: "Gaming for Seniors",
+                description: "10 million seniors game regularly, with brain training and social games reducing cognitive decline by 29%."
+            },
+            {
+                emoji: "🚴",
+                title: "Cycling Commuters",
+                description: "Bike commuters save an average of $8,000 annually while burning 360 calories per hour of cycling."
+            },
+            {
+                emoji: "📖",
+                title: "Reading Before Bed",
+                description: "Reading for just 6 minutes before sleep reduces stress by 68%, outperforming music, tea, or walking."
+            },
+            {
+                emoji: "🎭",
+                title: "Laughter Yoga",
+                description: "Laughter yoga is practiced by 6 million people worldwide, combining breathing with simulated laughter for health benefits."
+            },
+            {
+                emoji: "🌻",
+                title: "Gardening Therapy",
+                description: "Therapeutic gardening programs help 2 million people manage depression, PTSD, and physical rehabilitation."
+            },
+            {
+                emoji: "🍜",
+                title: "Slow Food Movement",
+                description: "100,000 establishments embrace slow food principles, prioritizing local ingredients and traditional cooking methods."
+            },
+            {
+                emoji: "🎵",
+                title: "Singing Health Benefits",
+                description: "Regular singing boosts immune function by 240% and releases endorphins, explaining the popularity of choir participation."
+            },
+            {
+                emoji: "🧩",
+                title: "Crossword Puzzles",
+                description: "Daily crossword solvers delay memory decline by 2.5 years, with 50 million people solving puzzles regularly."
+            },
+            {
+                emoji: "🏃‍♀️",
+                title: "Run Streak Culture",
+                description: "75,000 runners maintain streaks of running every day for years, with the longest streak exceeding 50 years."
+            },
+            {
+                emoji: "🌍",
+                title: "Staycation Trend",
+                description: "48% of vacationers choose staycations, exploring local attractions while saving money and reducing carbon footprints."
+            },
+            {
+                emoji: "🎨",
+                title: "Doodling Benefits",
+                description: "Doodling while listening improves information retention by 29%, making it a valuable learning tool, not distraction."
+            },
+            {
+                emoji: "🥤",
+                title: "Smoothie Nutrition",
+                description: "Daily smoothie drinkers consume 25% more fruits and vegetables, though whole foods provide better fiber content."
+            },
+            {
+                emoji: "🧘‍♂️",
+                title: "Standing Desk Adoption",
+                description: "32% of office workers use standing desks in 2025, reducing sitting time by 2.5 hours daily."
+            },
+            {
+                emoji: "🎪",
+                title: "Trampoline Parks",
+                description: "1,000+ trampoline parks operate globally, offering fun fitness that burns 1,000 calories per hour while jumping."
+            },
+            {
+                emoji: "🌙",
+                title: "Weighted Blanket Use",
+                description: "Weighted blankets reduce anxiety by 63% for users, with 28 million sold as sleep and stress management tools."
+            },
+            {
+                emoji: "📱",
+                title: "Phone Addiction Reality",
+                description: "50% of people feel anxious without their phone, with nomophobia (no-mobile-phone phobia) affecting billions."
+            },
+            {
+                emoji: "🍫",
+                title: "Dark Chocolate Benefits",
+                description: "Daily dark chocolate consumption improves heart health by 21%, though moderation is key at 1-2 ounces."
+            },
+            {
+                emoji: "🎯",
+                title: "Vision Board Practice",
+                description: "76% of vision board users achieve at least one major goal within a year, making visualization powerful."
+            },
+            {
+                emoji: "🏊‍♀️",
+                title: "Open Water Swimming",
+                description: "Cold water swimming communities have grown 600%, with members reporting improved mood and immune function."
+            },
+            {
+                emoji: "🌱",
+                title: "Composting Adoption",
+                description: "22% of households compost food waste in 2025, diverting 100 million tons from landfills annually."
+            },
+            {
+                emoji: "🎵",
+                title: "Music Learning Adults",
+                description: "15 million adults started learning instruments after age 40, proving it's never too late for music education."
+            },
+            {
+                emoji: "🧠",
+                title: "Memory Palace Technique",
+                description: "The memory palace technique improves recall by 300%, used by 5 million people for studying and presentations."
+            },
+            {
+                emoji: "🍕",
+                title: "Sourdough Baking",
+                description: "Home sourdough baking exploded with 45 million active starters, creating community through shared starter cultures."
+            },
+            {
+                emoji: "🎨",
+                title: "Art Museum Attendance",
+                description: "Art museums worldwide attract 850 million visitors annually, with free admission days democratizing cultural access."
+            },
+            {
+                emoji: "🌍",
+                title: "Secondhand Shopping",
+                description: "The resale market is worth $197 billion in 2025, with 76% of consumers buying secondhand for sustainability."
+            },
+            {
+                emoji: "🏃",
+                title: "Obstacle Course Racing",
+                description: "9 million people participate in obstacle course races like Tough Mudder annually, testing strength and determination."
+            },
+            {
+                emoji: "📚",
+                title: "Little Free Libraries",
+                description: "150,000 Little Free Libraries operate globally, facilitating book sharing and building neighborhood communities."
+            },
+            {
+                emoji: "🎮",
+                title: "Cozy Gaming Genre",
+                description: "Relaxing cozy games like Stardew Valley and Animal Crossing have 300 million players seeking peaceful virtual escapes."
+            },
+            {
+                emoji: "🧘",
+                title: "Sound Bath Healing",
+                description: "Sound bath meditation using singing bowls helps 8 million people achieve deep relaxation and stress relief."
+            },
+            {
+                emoji: "🌞",
+                title: "Sunrise Watching",
+                description: "Watching sunrises boosts mood and circadian rhythm, with 22% of people intentionally viewing sunrises weekly."
+            },
+            {
+                emoji: "🍎",
+                title: "Intermittent Fasting",
+                description: "60 million people practice intermittent fasting in 2025, with 16:8 being the most popular eating window."
+            },
+            {
+                emoji: "🎯",
+                title: "Minimalism Movement",
+                description: "The minimalism lifestyle is embraced by 45 million people, reducing possessions to focus on experiences and relationships."
+            },
+            {
+                emoji: "🌊",
+                title: "Beach Therapy",
+                description: "Being near the ocean reduces stress by 22% and improves sleep quality, explaining coastal living popularity."
+            },
+            {
+                emoji: "🎨",
+                title: "Pottery Classes",
+                description: "Pottery and ceramics classes have tripled in enrollment, offering tactile creativity and mindful focus for 12 million."
+            },
+            {
+                emoji: "🥗",
+                title: "Farmers Market Shopping",
+                description: "8,800 farmers markets operate in the US alone, supporting local agriculture and providing fresh produce to communities."
+            },
+            {
+                emoji: "🎪",
+                title: "Circus Skills Fitness",
+                description: "Juggling burns 280 calories per hour and improves coordination, with 4 million people learning circus skills for fun."
+            },
+            {
+                emoji: "🌙",
+                title: "Lucid Dreaming Practice",
+                description: "55% of people have experienced lucid dreaming, with 2 million actively training to control their dreams nightly."
+            },
+            {
+                emoji: "🍕",
+                title: "Pizza Varieties",
+                description: "Over 61,000 pizzerias operate in the US, with each region creating unique styles from New York to Chicago deep dish."
+            },
+            {
+                emoji: "📱",
+                title: "Social Media Breaks",
+                description: "62% of users take periodic social media breaks, reporting 58% less anxiety and improved real-world relationships."
+            },
+            {
+                emoji: "🎨",
+                title: "Diamond Painting Hobby",
+                description: "Diamond painting craft kits sold 85 million units in 2024, offering meditative mosaic art creation."
+            },
+            {
+                emoji: "🏃",
+                title: "Virtual Race Participation",
+                description: "Virtual races allow 15 million runners to compete from anywhere, tracking times via GPS and apps."
+            },
+            {
+                emoji: "🧠",
+                title: "Speed Reading Skills",
+                description: "Speed reading courses help people read 3x faster, though comprehension drops 20% at very high speeds."
+            },
+            {
+                emoji: "🌱",
+                title: "Window Sill Gardens",
+                description: "38 million urban dwellers grow herbs on window sills, bringing fresh ingredients and greenery to apartments."
+            },
+            {
+                emoji: "🎵",
+                title: "White Noise Users",
+                description: "75 million people use white noise or nature sounds to sleep, with rain sounds being most popular."
+            },
+            {
+                emoji: "🍜",
+                title: "Meal Kit Services",
+                description: "Meal kit subscriptions serve 78 million customers globally, reducing food waste while teaching cooking skills."
+            },
+            {
+                emoji: "🎯",
+                title: "Cold Shower Benefits",
+                description: "Cold showers boost immunity by 29% and increase alertness, practiced by 25 million people daily."
+            },
+            {
+                emoji: "🏋️",
+                title: "Kettlebell Training",
+                description: "Kettlebell workouts burn 400 calories in 20 minutes, making them one of the most efficient strength training methods."
+            },
+            {
+                emoji: "📚",
+                title: "Speed of Reading",
+                description: "The average adult reads 200-250 words per minute, completing a 300-page book in about 6-7 hours."
+            },
+            {
+                emoji: "🌍",
+                title: "Co-Working Spaces",
+                description: "42,000 co-working spaces operate globally in 2025, serving 5.1 million members seeking flexible workspaces."
+            },
+            {
+                emoji: "🎮",
+                title: "Board Game Renaissance",
+                description: "Modern board games generate $13 billion annually, with 5,000+ new titles released each year for enthusiasts."
+            },
+            {
+                emoji: "🧘",
+                title: "Stretching Benefits",
+                description: "Daily stretching for 10 minutes improves flexibility by 20% monthly and reduces injury risk by 30%."
+            },
+            {
+                emoji: "🍫",
+                title: "Coffee Shop Culture",
+                description: "People spend an average of 3 hours weekly in coffee shops, using them as third spaces for work and socializing."
+            },
+            {
+                emoji: "🌙",
+                title: "Bedtime Routines",
+                description: "Consistent bedtime routines improve sleep quality by 42%, yet only 35% of adults maintain regular sleep schedules."
+            },
+            {
+                emoji: "🎨",
+                title: "Photography Hobby",
+                description: "162 million people consider photography a serious hobby, with smartphone cameras democratizing the art form."
+            },
+            {
+                emoji: "🏃‍♀️",
+                title: "Barefoot Running",
+                description: "Barefoot running reduces impact forces by 30% and strengthens foot muscles, though transition requires months."
+            },
+            {
+                emoji: "🌱",
+                title: "Sprout Growing",
+                description: "Growing sprouts at home provides nutrition-packed food in 3-5 days, practiced by 12 million health enthusiasts."
+            },
+            {
+                emoji: "🎵",
+                title: "Karaoke Participation",
+                description: "1.2 billion people worldwide enjoy karaoke, with Japan having 100,000+ karaoke rooms for this beloved pastime."
+            },
+            {
+                emoji: "🍕",
+                title: "Leftovers Creativity",
+                description: "72% of people regularly eat leftovers, with creative repurposing reducing food waste by $1,200 per household yearly."
+            },
+            {
+                emoji: "📱",
+                title: "Airplane Mode Usage",
+                description: "Only 18% of people use airplane mode during flights, though it significantly extends battery life."
+            },
+            {
+                emoji: "🎯",
+                title: "Habit Stacking Method",
+                description: "Linking new habits to existing ones increases success rates by 65%, making behavior change more sustainable."
+            },
+            {
+                emoji: "🏊",
+                title: "Aqua Aerobics",
+                description: "Water aerobics provides full-body workout with zero impact, popular among 10 million people of all ages."
+            },
+            {
+                emoji: "🧠",
+                title: "Dual N-Back Training",
+                description: "Brain training games can improve working memory by 30%, though transfer to real-world tasks is debated."
+            },
+            {
+                emoji: "🌍",
+                title: "House Swapping Vacations",
+                description: "250,000 families exchange homes for vacations annually, experiencing authentic local living while saving on accommodation."
+            },
+            {
+                emoji: "🎨",
+                title: "Zentangle Art Method",
+                description: "Zentangle meditation drawing reduces stress for 8 million practitioners through repetitive, structured patterns."
+            },
+            {
+                emoji: "🍎",
+                title: "Grocery Shopping Frequency",
+                description: "Americans grocery shop 1.6 times weekly on average, spending 43 minutes per trip selecting food."
+            },
+            {
+                emoji: "🌙",
+                title: "Blue Light Glasses",
+                description: "68 million people wear blue light blocking glasses, though scientific evidence for benefits remains inconclusive."
+            },
+            {
+                emoji: "🎮",
+                title: "Speedrunning Community",
+                description: "Speedrunners compete to beat games as fast as possible, with 2 million active participants and massive viewership."
+            },
+            {
+                emoji: "🧘‍♀️",
+                title: "Tai Chi Practice",
+                description: "50 million people practice Tai Chi globally, improving balance by 47% and reducing fall risk in seniors."
+            },
+            {
+                emoji: "🍫",
+                title: "Comfort Food Science",
+                description: "Comfort foods trigger dopamine release and reduce cortisol by 32%, explaining emotional eating patterns."
+            },
+            {
+                emoji: "📚",
+                title: "Book Hoarding Tsundoku",
+                description: "65% of book buyers have unread books at home, a Japanese concept called tsundoku meaning acquiring without reading."
+            },
+            {
+                emoji: "🌱",
+                title: "Succulent Collection",
+                description: "Succulents are the most popular houseplants with 95 million collectors, prized for low maintenance and variety."
+            },
+            {
+                emoji: "🎵",
+                title: "Vinyl Record Revival",
+                description: "Vinyl sales reached $1.4 billion in 2024, outselling CDs as collectors prize tangible, high-quality audio experiences."
+            },
+            {
+                emoji: "🏃",
+                title: "Treadmill Workstations",
+                description: "Walking treadmill desks let users walk 2-3 mph while working, burning 100 extra calories per hour."
+            },
+            {
+                emoji: "🌍",
+                title: "Pet Sitting Exchange",
+                description: "3 million people exchange pet sitting services for free accommodation, combining travel with animal care."
+            },
+            {
+                emoji: "🎨",
+                title: "Resin Art Crafting",
+                description: "Epoxy resin art exploded to 22 million practitioners, creating glossy artwork, jewelry, and home decor."
+            },
+            {
+                emoji: "🍜",
+                title: "Meal Prepping Sunday",
+                description: "Sunday meal prep saves 5 hours weekly for 58 million people, ensuring healthy eating despite busy schedules."
+            },
+            {
+                emoji: "📱",
+                title: "Notification Management",
+                description: "The average person receives 46 push notifications daily, with 96% ignored within 90 minutes."
+            },
+            {
+                emoji: "🎯",
+                title: "Pomodoro Technique",
+                description: "The Pomodoro method (25-minute focused work intervals) improves productivity by 40% for 30 million users."
+            },
+            {
+                emoji: "🏋️‍♀️",
+                title: "Resistance Band Workouts",
+                description: "Resistance bands provide strength training anywhere, used by 85 million people as portable gym equipment."
+            },
+            {
+                emoji: "🧠",
+                title: "Synesthesia Experience",
+                description: "4% of people have synesthesia, experiencing crossed senses like seeing colors when hearing music."
+            },
+            {
+                emoji: "🌙",
+                title: "Sleep Debt Accumulation",
+                description: "54% of adults have sleep debt averaging 2.5 hours, which can only be repaid through consistent adequate sleep."
+            },
+            {
+                emoji: "🎮",
+                title: "Puzzle Games Brain Health",
+                description: "Daily puzzle gaming maintains cognitive function, with 140 million seniors playing for brain health."
+            },
+            {
+                emoji: "🧘",
+                title: "Desk Yoga Breaks",
+                description: "5-minute desk yoga breaks reduce back pain by 38% and improve focus for office workers."
+            },
+            {
+                emoji: "🍫",
+                title: "Cooking Show Impact",
+                description: "Cooking show viewers attempt 3.2 new recipes monthly on average, expanding culinary skills and confidence."
+            },
+            {
+                emoji: "📚",
+                title: "Reading Speed Factors",
+                description: "Digital reading is 20-30% slower than print, yet 67% of reading now happens on screens."
+            },
+            {
+                emoji: "🌱",
+                title: "Herb Garden Benefits",
+                description: "Growing five herb varieties saves $200 annually while providing fresh, pesticide-free ingredients year-round."
+            },
+            {
+                emoji: "🎵",
+                title: "Music and Productivity",
+                description: "Instrumental music boosts productivity by 15%, while lyrics can reduce focus on verbal tasks by 10%."
+            },
+            {
+                emoji: "🏃‍♂️",
+                title: "Run Commuting",
+                description: "1.5 million people run-commute to work, combining transportation with exercise and saving gym time."
+            },
+            {
+                emoji: "🌍",
+                title: "Time Banking Communities",
+                description: "500,000 people participate in time banks, exchanging services without money to build community resilience."
+            },
+            {
+                emoji: "🎨",
+                title: "Adult Lego Builders",
+                description: "58% of Lego sales are to adults in 2025, with complex sets providing stress relief and creative satisfaction."
+            },
+            {
+                emoji: "🍕",
+                title: "Pizza Temperature Preference",
+                description: "63% prefer hot pizza, 28% love cold leftover pizza, and 9% don't discriminate in this divisive debate."
+            },
+            {
+                emoji: "📱",
+                title: "Texting vs Calling",
+                description: "People send 23 billion texts daily but make only 2.7 billion calls, preferring asynchronous communication."
+            },
+            {
+                emoji: "🎯",
+                title: "Micro-Goals Success",
+                description: "Breaking goals into micro-tasks increases completion rates by 73%, making overwhelming projects achievable."
+            },
+            {
+                emoji: "🏋️",
+                title: "Isometric Exercise",
+                description: "Holding static positions builds strength efficiently, with planks improving core strength by 25% in 4 weeks."
+            },
+            {
+                emoji: "🧠",
+                title: "Foreign Language Dreams",
+                description: "50% of multilingual people dream in their second language after 6 months of daily immersion."
+            },
+            {
+                emoji: "🌙",
+                title: "Nap Duration Science",
+                description: "10-20 minute naps boost alertness, 60 minutes help memory, and 90 minutes provide full sleep cycle benefits."
+            },
+            {
+                emoji: "🎮",
+                title: "Mobile Gaming Commuters",
+                description: "82% of smartphone users play mobile games, with the average session lasting just 7 minutes during commutes."
+            },
+            {
+                emoji: "🧘‍♂️",
+                title: "Walking Meditation",
+                description: "Walking meditation combines mindfulness with movement, practiced by 18 million people for accessible meditation."
+            },
+            {
+                emoji: "🍫",
+                title: "Emotional Eating Triggers",
+                description: "75% of overeating is triggered by emotions rather than hunger, with stress being the primary driver."
+            },
+            {
+                emoji: "📚",
+                title: "Rereading Books",
+                description: "38% of readers regularly reread favorite books, finding new insights and comfort in familiar stories."
+            },
+            {
+                emoji: "🌱",
+                title: "Balcony Vegetable Gardens",
+                description: "Balcony gardens produce 50 pounds of vegetables annually in just 20 square feet of creative vertical space."
+            },
+            {
+                emoji: "🎵",
+                title: "Shower Playlist Culture",
+                description: "45% of music streaming happens in bathrooms, with dedicated shower playlists averaging 15 minutes."
+            },
+            {
+                emoji: "🏃",
+                title: "Running Shoe Lifespan",
+                description: "Running shoes last 300-500 miles before losing cushioning, requiring replacement every 3-6 months for regular runners."
+            },
+            {
+                emoji: "🌍",
+                title: "Tool Library Sharing",
+                description: "1,000+ tool libraries let communities borrow equipment, saving money and reducing waste through sharing."
+            },
+            {
+                emoji: "🎨",
+                title: "Origami Mindfulness",
+                description: "Paper folding improves spatial reasoning and reduces anxiety for 25 million origami enthusiasts worldwide."
+            },
+            {
+                emoji: "🍜",
+                title: "One-Pot Meal Trend",
+                description: "One-pot recipes save 45 minutes of cleanup time while reducing water and energy use by 40%."
+            },
+            {
+                emoji: "📱",
+                title: "Emoji Communication",
+                description: "10 billion emojis are sent daily, with 😂 being most popular, conveying emotion more efficiently than words."
+            },
+            {
+                emoji: "🎯",
+                title: "Implementation Intentions",
+                description: "Specifying exactly when and where you'll do tasks increases follow-through by 91% compared to vague plans."
+            },
+            {
+                emoji: "🏋️‍♂️",
+                title: "Bodyweight Exercise",
+                description: "Bodyweight training requires no equipment, with push-ups, squats, and planks providing complete workouts anywhere."
+            },
+            {
+                emoji: "🧠",
+                title: "Earworm Elimination",
+                description: "Chewing gum eliminates stuck songs for 82% of people by disrupting the brain's internal rehearsal mechanism."
+            },
+            {
+                emoji: "🌙",
+                title: "Chronotype Diversity",
+                description: "Genetics determine 50% of whether you're a morning lark or night owl, with 25% being flexible."
+            },
+            {
+                emoji: "🎮",
+                title: "Couch Co-op Gaming",
+                description: "Local multiplayer gaming strengthens relationships, with couples reporting 23% better communication after gaming together."
+            },
+            {
+                emoji: "🧘",
+                title: "Progressive Muscle Relaxation",
+                description: "Tensing then releasing muscle groups reduces physical tension by 55% and anxiety by 40% in minutes."
+            },
+            {
+                emoji: "🍫",
+                title: "Mindful Eating Practice",
+                description: "Eating slowly and mindfully reduces calorie consumption by 10% and increases satisfaction with meals."
+            },
+            {
+                emoji: "📚",
+                title: "Bedside Book Stacks",
+                description: "The average reader has 5 books on their nightstand simultaneously, reading mood-appropriate selections."
+            },
+            {
+                emoji: "🌱",
+                title: "Air-Purifying Plants",
+                description: "NASA-studied plants like snake plants remove 87% of air toxins in 24 hours in sealed chambers."
+            },
+            {
+                emoji: "🎵",
+                title: "Workout Music Tempo",
+                description: "Music at 120-140 BPM increases workout performance by 15%, syncing movement to rhythm naturally."
+            },
+            {
+                emoji: "🏃‍♀️",
+                title: "Running Mantras",
+                description: "Repeating personal mantras while running improves endurance by 18% through mental distraction and motivation."
+            },
+            {
+                emoji: "🌍",
+                title: "Skill Sharing Workshops",
+                description: "Community skill shares let 8 million people teach and learn for free, from cooking to carpentry."
+            },
+            {
+                emoji: "🎨",
+                title: "Watercolor Meditation",
+                description: "Watercolor painting's unpredictable flow creates meditative state for 15 million practitioners seeking creative calm."
+            },
+            {
+                emoji: "🍕",
+                title: "Pizza Folding Debate",
+                description: "New Yorkers fold pizza slices for easier eating, a technique that structurally prevents drooping through physics."
+            },
+            {
+                emoji: "📱",
+                title: "Dark Mode Preference",
+                description: "82% of users enable dark mode, though eye strain benefits are minimal compared to reduced battery drain."
+            },
+            {
+                emoji: "🎯",
+                title: "Accountability Partners",
+                description: "Having an accountability partner increases goal achievement success rates from 10% to 65%."
+            },
+            {
+                emoji: "🏋️",
+                title: "Wall Sits Challenge",
+                description: "Wall sits for 2 minutes builds leg strength equivalent to weighted squats, requiring only a wall."
+            },
+            {
+                emoji: "🧠",
+                title: "Shower Thoughts Phenomenon",
+                description: "70% of people have creative breakthroughs in the shower due to relaxed focus and dopamine release."
+            },
+            {
+                emoji: "🌙",
+                title: "Sleep Position Preferences",
+                description: "74% sleep on their side, 16% on back, 10% on stomach, with position affecting spine health significantly."
+            },
+            {
+                emoji: "🎮",
+                title: "Sandbox Games Freedom",
+                description: "Open-world sandbox games like Minecraft encourage creativity, played by 350 million people building virtual worlds."
+            }
+        ];
+
+        let factCount = 0;
+        let usedFacts = [];
+
+        function getRandomFact() {
+            if (usedFacts.length === facts.length) {
+                usedFacts = [];
+            }
+
+            let randomFact;
+            do {
+                randomFact = facts[Math.floor(Math.random() * facts.length)];
+            } while (usedFacts.includes(randomFact));
+
+            usedFacts.push(randomFact);
+            factCount++;
+
+            document.getElementById('emoji').textContent = randomFact.emoji;
+            document.getElementById('factNumber').textContent = `Fact #${factCount}`;
+            document.getElementById('factTitle').textContent = randomFact.title;
+            document.getElementById('factDescription').textContent = randomFact.description;
+            document.getElementById('counter').textContent = `Facts discovered: ${factCount}`;
+
+            const card = document.getElementById('factCard');
+            card.style.animation = 'none';
+            setTimeout(() => {
+                card.style.animation = 'fadeIn 0.5s ease';
+            }, 10);
+        }
+
+        getRandomFact();
+    </script>
+</body>
+</html>
